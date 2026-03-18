@@ -1,0 +1,29 @@
+.task {
+  font-family: sans-serif;
+  background: #c2f67e;
+  color: white;
+
+  width: 450px;  /* width: 100%; */
+  min-height: 150px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Форма добавления */
+.form-of-add__title {
+  width: 100%;
+  margin: 0;
+  padding: 5px 0px;
+  background: white;
+  color: black;
+}
+
+.form-add {
+  border: 1px solid black;
+  width: 100%;
+  margin: 0px;
+  min-height: 50px;
+  background: white;
+}
+

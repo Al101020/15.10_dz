@@ -1,4 +1,13 @@
-.counter {
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
+}
+
+
+
+/* .counter {
   font-size: 16px;
   padding: 5px 10px;
   border-radius: 5px;
@@ -181,4 +190,4 @@
     right: 0;
     border-right-color: var(--border);
   }
-}
+} */
