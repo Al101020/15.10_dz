@@ -7,7 +7,12 @@ import { useEffect, useState } from 'react';
 function task() {
   const [nameOfTheService, setNameOfTheService] = useState('');
   const [cost, setCost] = useState('');
+  const [arrServis, arrServisarrServis] = useState([]);
   // console.log(cost);
+
+  useEffect(() => {
+    console.log('переменные поменялись');
+  }, [nameOfTheService, cost]);
 
   return (
     <div className='task'>

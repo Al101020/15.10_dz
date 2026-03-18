@@ -9,8 +9,15 @@ export default function FormOfAddition(props) {
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(nameOfTheService + ' - ' + cost);
+    
+    if (e.target.parentElement.children[0].value === '' || 
+    e.target.parentElement.children[1].value === '') {
+      alert( 'Нужно заполнить название услуги и стоимость' );// console.log('Нужно заполнить');
+      return;
+    };
 
+    console.log(nameOfTheService + ' - ' + cost);
+    
     setNameOfTheService('');
     setCost('');
   }
