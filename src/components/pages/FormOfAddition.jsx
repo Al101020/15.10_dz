@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import ShowServices from './ShowServices';
 
 export default function FormOfAddition(props) {
 
-  const nameOfTheService = props.nameOfTheService
-  const setNameOfTheService = props.setNameOfTheService  
-  const cost = props.cost
-  const setCost = props.setCost
+  const nameOfTheService = props.nameOfTheService;
+  const setNameOfTheService = props.setNameOfTheService;
+  const cost = props.cost;
+  const setCost = props.setCost;
+  const arrServis = props.arrServis;
+  const setArrServis = props.setArrServis;  // console.log(setArrServis);
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -14,10 +17,14 @@ export default function FormOfAddition(props) {
     e.target.parentElement.children[1].value === '') {
       alert( 'Нужно заполнить название услуги и стоимость' );// console.log('Нужно заполнить');
       return;
-    };
+    };     // console.log(nameOfTheService + ' - ' + cost);    // console.log(arrServis);
+    const objService = {name: nameOfTheService, price: cost};     // console.log(objService);
 
-    console.log(nameOfTheService + ' - ' + cost);
-    
+    const updateArrServis = arrServis;    // console.log(updateArrServis);
+    updateArrServis.push(objService);    // console.log(updateArrServis);
+    setArrServis(updateArrServis);
+    console.log(props.arrServis);
+
     setNameOfTheService('');
     setCost('');
   }
@@ -58,5 +65,6 @@ export default function FormOfAddition(props) {
         onClick={submitForm}
       >Save</button>
     </form>
+    <ShowServices arrServis={props.arrServis}/>
   </>);
 }

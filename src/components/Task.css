@@ -23,7 +23,39 @@
   /* border: 1px solid black; */
   width: 100%;
   margin: 0px;
-  min-height: 50px;
+  min-height: 25px;
   background: white;
 }
 
+
+.ShowServices {
+  /* margin: 0px; */
+  padding: 0px;
+  background: white;
+  color: black;
+}
+
+.service {
+  display: flex;
+  min-height: 25px;
+  /* border: 1px solid black; */
+  /* margin: 0px; */
+  padding-top: 10px;
+}
+
+.marker {
+  background-image: url('../assets/точка.png');
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  margin-right: 15px;
+  margin-left: 25px;
+}
+
+.serviceName {
+  margin-right: 10px;
+}
+
+.servicePrice {
+  margin-right: 10px;
+}
