@@ -40,11 +40,14 @@
   min-height: 25px;
   /* border: 1px solid black; */
   /* margin: 0px; */
-  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 .marker {
   background-image: url('../assets/точка.png');
+  background-repeat: no-repeat;
+  background-position: center;
   width: 17px;
   height: 17px;
   padding: 0;
@@ -58,4 +61,23 @@
 
 .servicePrice {
   margin-right: 10px;
+}
+
+.btnEdit {
+  width: 25px;
+  height: 25px;
+  /* background-image: url('../assets/btnEdit.png');
+  background-repeat: no-repeat; */
+  font-size: 12px;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.btnDel {
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  cursor: pointer;
 }
