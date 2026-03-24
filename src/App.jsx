@@ -1,36 +1,34 @@
-import { useState } from 'react'
-import { BrowserRouter } from 'react-router'
-import './App.css'
-import Task from './components/Task'
+import React from 'react';
+import ServiceAdd from './components/ServiceAdd';
+import ServiceList from './components/ServiceList';
 
-function App() {
-  // const [count, setCount] = useState(0)
-
+export default function App() {
   return (
     <>
-      <h3>Задание</h3>
-      <BrowserRouter>
-        <Task />
-      </BrowserRouter>
+      <ServiceAdd />
+      <ServiceList />
     </>
-  )
+  );
 }
 
-export default App
 
 
-// import './App.css';
-// import { BrowserRouter } from 'react-router'
-// import NavigationMenu from './components/task1/NavigationMenu';
+
+// // import { useState } from 'react'
+// import './App.css'
+// // import React from 'react';
+// import { Provider } from 'react-redux';
+// import Task from './components/Task'
+
 
 // function App() {
 
 //   return (
 //     <>
-//       <h3>Задание №1 - Навигационное меню</h3>
-//       <BrowserRouter>
-//         <NavigationMenu />
-//       </BrowserRouter>
+//       <h3>Задание</h3>
+//       <Provider>
+//         <Task />
+//       </Provider>
 //     </>
 //   )
 // }
