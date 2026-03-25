@@ -1,6 +1,8 @@
 // import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {changeServiceField, addService} from '../actions/actionCreators';
+import {changeServiceField, addService, editService} from '../actions/actionCreators';
+
+import { objIdEdit } from './ServiceList'
 
 export default function ServiceAdd() {
   const item = useSelector(state => state.serviceAdd);// console.log(item);
@@ -14,15 +16,35 @@ export default function ServiceAdd() {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    const name = evt.target.children[0].value;
-    const price = evt.target.children[1].value;// console.log(name + ' - ' + value); //проверка
-    dispatch(addService(name, price));
-    evt.target.children[0].value = '';
-    evt.target.children[1].value = 0;
+    
+    const target = evt.target;
+    console.log(target);     // console.log(target.children.length); // length
+    // console.log(target.children[2].classList.contains('edit'));
+    // if (target.children[2].classList.contains('edit')) {
+    //   console.log('кнопка сохранить ИЗМЕНЕНИЯ');
+    // } else {
+    //   console.log('кнопка сохранить ИЗМЕНЕНИЯ, нет класса EDIT');
+    // }
+
+    if (target.children.length === 3) {
+      const name = evt.target.children[0].value;
+      const price = evt.target.children[1].value;// console.log(name + ' - ' + value); //проверка
+      dispatch(addService(name, price));
+      evt.target.children[0].value = '';
+      evt.target.children[1].value = 0;
+    } else if (target.children.length === 4) {
+      console.log('кнопка сохранить ИЗМЕНЕНИЯ');// console.log(item); // {name: '', price: ''}
+      console.log('Сюда надо написать dispatch  для ИЗМЕНЕНИЯ услуги');
+      const name = evt.target.children[0].value;
+      const price = evt.target.children[1].value;
+      dispatch(editService(objIdEdit.id, name, price)); // id, 
+    };
+
+    
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form id='form' onSubmit={handleSubmit}>
       <input
         type='text'
         name='name'
@@ -30,6 +52,7 @@ export default function ServiceAdd() {
         placeholder='Наименование услуги'
         value={item.name}
         required
+        autoComplete='on'
       />
       <input
         type='number'
@@ -37,9 +60,10 @@ export default function ServiceAdd() {
         onChange={handleChange}
         value={item.price}
         placeholder='Стоимость'
-        required 
+        required
+        autoComplete='on'
       />
-      <button type='submit'>Save</button>
+      <button type='submit' className='save'>Save</button>
     </form>
   );
 } 

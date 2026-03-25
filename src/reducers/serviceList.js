@@ -17,16 +17,31 @@ export default function serviceListReducer(state = initialState, action) {
       console.log(id);//
       return state.filter(service => service.id !== id);
     case EDIT_SERVICE:
-      const {idEdit, nameEdit, priceEdit} = action.payload;
-      console.log(idEdit);
-      const obj = state.find(item => item.id === idEdit);
-      console.log(obj);
-      // return state.filter(service => service.id !== id);
-      return;
-      (
-        console.log(state)
-        // state.find(item => item.id === 4);
-      );
+      console.log(action.payload);
+      // const {idEdit, nameEdit, priceEdit} = action.payload;
+      const idEdit = action.payload.id;// console.log(idEdit);//
+      const nameEdit = action.payload.name;//
+      const priceEdit = action.payload.price;//
+
+      const objEdit = state.find(item => item.id === idEdit);//
+      objEdit.name = nameEdit;
+      objEdit.price = priceEdit;
+      console.log(objEdit);//
+
+      console.log(state);//
+
+      return state.forEach(item => {
+        console.log(item.id)
+        if (item.id === idEdit) {
+          console.log(item.id)
+          item.name = nameEdit;
+          item.price = priceEdit;
+          console.log(item);
+        }
+      });
+
+      // return state;
+      
     default:
       return state;
   }
