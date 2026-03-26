@@ -36,18 +36,18 @@ export default function ServiceList() {
 
   const handleRemove = id => { dispatch(removeService(id)) };
 
-  const handleSubmitFilter = (e) => {
+  const handleChangeFilter = (e) => {
     e.preventDefault();
 
-    objForVar.formFilter = e.target;  // ----
+    objForVar.inputFilter = e.target;  // ----
 
-    const textFilter = e.target.children[0].value;
-    if (textFilter === '') {
-      alert('чтобы фильтровать список, нужно что-то ввести в Input');
-    } else {
-      // console.log(textFilter);
-      setFilter(textFilter);
-      e.target.children[0].value = '';
+    // console.log(e.target);
+    const textFilter = e.target.value;
+
+    // console.log(textFilter);
+
+    if (textFilter !== null) {
+      setFilter(textFilter);      // e.target.value = '';
     }
   }
 
@@ -55,27 +55,28 @@ export default function ServiceList() {
     if (filter === null) {
       return;
     }
-    console.log(filter);    // console.log(items);
+    // console.log(filter);    
+    // console.log(objForVar.inputFilter.parentElement);
     
-    const li = [...objForVar.formFilter.parentElement.children[1].children];
+    const li = [...objForVar.inputFilter.parentElement.children[1].children];
     for (let i = 0; i < li.length; i++) { 
       const textLi = li[i].textContent;
-      console.log(textLi);
+      // console.log(textLi);
               // li[i].remove(); // text.indexOf("Script")
       if (textLi.indexOf(filter) !== -1) {
-        console.log(li[i]);
-        console.log('искомы текст имеется ' + filter);
+        // console.log(li[i]);
+        // console.log('искомы текст имеется ' + filter);
         if (li[i].classList.contains('displayNone')) {
           li[i].classList.remove('displayNone');
         };
       } else {
-        console.log('НЕТ искомого текста: ' + filter);
+        // console.log('НЕТ искомого текста: ' + filter);
         // .classList.contains('secondary'); // true
         if (!li[i].classList.contains('displayNone')) {
           li[i].classList.add('displayNone');
         };
       };
-      console.log(li);
+      // console.log(li);
     };
 
     // [...li].filter(li => li.id === 1); // не перерисовал объект
@@ -114,20 +115,42 @@ export default function ServiceList() {
           </li>
         ))}
       </ul>
-      <form id='formFilter' onSubmit={handleSubmitFilter}>
-        <input
-          type='text'
-          name='textFilter'
-          // onChange={handleChange}
-          placeholder='Фильтр'
-          // value={item.name}
-          // required
-          autoComplete='off'
-        />
-        <button type='submit'>Фильтр</button>
-      </form>
+      <input
+        type='text'
+        name='textFilter'
+        onChange={handleChangeFilter}//handleChange 
+        placeholder='Фильтр'
+        // value={item.name}
+        // required
+        autoComplete='off'
+      />
     </>
   )
+  // return ( // с кнопкой
+  //   <>
+  //     <ul>
+  //       {items.map(o => (
+  //         <li key={o.id} className='li'>
+  //           {o.name} {o.price}
+  //           <button onClick={(e) => handleEdit(e, o)}>✎</button>
+  //           <button onClick={() => handleRemove(o.id)}>✕</button>
+  //         </li>
+  //       ))}
+  //     </ul>
+  //     <form id='formFilter' onSubmit={handleSubmitFilter}>
+  //       <input
+  //         type='text'
+  //         name='textFilter'
+  //         // onChange={handleChange}
+  //         placeholder='Фильтр'
+  //         // value={item.name}
+  //         // required
+  //         autoComplete='off'
+  //       />
+  //       <button type='submit'>Фильтр</button>
+  //     </form>
+  //   </>
+  // )
 }
 
 
