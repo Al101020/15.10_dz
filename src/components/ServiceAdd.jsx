@@ -1,7 +1,6 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {changeServiceField, addService, editService} from '../actions/actionCreators';
 
-// import { objIdEdit } from './ServiceList'
 import { objForVar } from './ServiceList'
 
 export default function ServiceAdd() {
